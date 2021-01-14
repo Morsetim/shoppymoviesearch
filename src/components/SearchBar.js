@@ -1,5 +1,4 @@
 import React from 'react';
-import Loader from 'react-loader-spinner'
 import './App.css'
 
 class SearchBar extends React.Component{

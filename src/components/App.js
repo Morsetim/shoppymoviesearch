@@ -63,7 +63,7 @@ class App extends React.Component {
                         {this.state.selectedMovieList.map(movie => {
                             return (
                                 <div className="gen">
-                                    <img className="ui image" src={movie.Poster} />
+                                    <img alt="" className="ui image" src={movie.Poster} />
                                     <div className="mini-div">
                                         <p>{movie.Title} ({movie.Year})</p><br />
                                         <button id="remove" onClick={() => {

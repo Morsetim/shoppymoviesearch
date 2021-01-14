@@ -1,0 +1,23 @@
+{
+  "name": "finder",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.21.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-loader-spinner": "^3.1.14",
+    "react-scripts": "1.1.4",
+    "react-toast": "^1.0.1",
+    "react-toast-notifications": "^2.4.0",
+    "react-toastify": "^6.2.0",
+    "react-toastr": "^3.0.0",
+    "react-toasts": "^2.0.8"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

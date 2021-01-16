@@ -10,14 +10,25 @@ class App extends React.Component {
     state = { movies: [], selectedMovieList: [], text: '', loading: false };
 
 
+    componentDidMount() {
+        const nominatedMovies = JSON.parse(localStorage.getItem('selected_nominations')) || '';
+        this.setState({ selectedMovieList : nominatedMovies})
+    }
+    
+    
     onTermSubmit = async movie => {
         this.setState({loading: true})
         const response = await omdb(movie)
         if (response) { this.setState({ loading: false, movies: response.data.Search, selectedMovieList: [], text: movie }) }
     }
 
+    saveToLocalStorage = (items) =>{
+        localStorage.setItem('selected_nominations', JSON.stringify(items));
+    };
+
     onSelectMovie = selected => {
         this.setState({ selectedMovieList: [...this.state.selectedMovieList, selected] })
+        this.saveToLocalStorage(this.state.selectedMovieList);
     }
 
     onDeleteMovie = (id) => {

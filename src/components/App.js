@@ -28,7 +28,7 @@ class App extends React.Component {
 
     onSelectMovie = selected => {
         this.setState({ selectedMovieList: [...this.state.selectedMovieList, selected] })
-        this.saveToLocalStorage(this.state.selectedMovieList);
+        this.saveToLocalStorage([...this.state.selectedMovieList, selected]);
     }
 
     onDeleteMovie = (id) => {
@@ -73,7 +73,6 @@ class App extends React.Component {
                     <div>
                     <h2>Nominated Movies</h2>
                         {this.state.selectedMovieList && this.state.selectedMovieList.map(movie => {
-                            console.log(this.state.selectedMovieList)
                             return (
                                 <div className="gen">
                                     <img alt="" className="ui image" src={movie.Poster} />

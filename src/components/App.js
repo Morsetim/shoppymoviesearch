@@ -7,7 +7,7 @@ import './App.css'
 
 
 class App extends React.Component {
-    state = { movies: [], selectedMovieList: [], text: '', loading: false };
+    state = { movies: [], selectedMovieList: [], text: '', loading: false, nominate: false };
 
 
     componentDidMount() {
@@ -27,6 +27,7 @@ class App extends React.Component {
     };
 
     onSelectMovie = selected => {
+        this.setState({nominate: true})
         this.setState({ selectedMovieList: [...this.state.selectedMovieList, selected] })
         this.saveToLocalStorage([...this.state.selectedMovieList, selected]);
     }
@@ -37,7 +38,7 @@ class App extends React.Component {
         })
     }
     render() {
-        const { selectedMovieList, text, loading } = this.state;
+        const { selectedMovieList, text, loading, nominate } = this.state;
         return (
             <div>
                 <h1>The Shoppies</h1>
@@ -64,15 +65,15 @@ class App extends React.Component {
                                     >Nominate</button>
                                 </div>
                                 <div>
-                                    <ToastContainer store={ToastStore} position={ToastContainer.POSITION.TOP_CENTER} />
+                                    <ToastContainer store={ToastStore} position={ToastContainer.POSITION.TOP_BOTTOM} />
                                 </div>
                             </div>
                         )
                     })}
                     </div>)}
                     <div>
-                    <h2>Nominated Movies</h2>
-                        {this.state.selectedMovieList && this.state.selectedMovieList.map(movie => {
+                    {nominate && <h2>Nominated Movies</h2>}
+                    {this.state.selectedMovieList && this.state.selectedMovieList.map(movie => {
                             return (
                                 <div className="gen">
                                     <img alt="" className="ui image" src={movie.Poster} />

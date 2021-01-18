@@ -71,6 +71,7 @@ class App extends React.Component {
                     })}
                     </div>)}
                     <div>
+                    <h2>Nominated Movies</h2>
                         {this.state.selectedMovieList.map(movie => {
                             return (
                                 <div className="gen">

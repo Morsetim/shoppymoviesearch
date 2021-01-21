@@ -74,7 +74,7 @@ class App extends React.Component {
                     </div>)}
                     <div>
                     {nominate && <h2>Nominated Movies</h2>}
-                    {this.state.selectedMovieList && this.state.selectedMovieList.map(movie => {
+                    {this.state.selectedMovieList.length > 0 && this.state.selectedMovieList.map(movie => {
                             return (
                                 <div className="gen">
                                     <img alt="" className="ui image" src={movie.Poster} />

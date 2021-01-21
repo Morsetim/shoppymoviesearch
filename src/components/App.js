@@ -36,6 +36,7 @@ class App extends React.Component {
         this.setState({
             selectedMovieList: this.state.selectedMovieList.filter(movie => { return movie.imdbID !== id })
         })
+        this.saveToLocalStorage(this.state.selectedMovieList)
     }
     render() {
         const { selectedMovieList, text, loading, nominate } = this.state;
